@@ -15,7 +15,7 @@ import com.autobots.msusuario.enumeracoes.PerfilUsuario;
 
 @SuppressWarnings("serial")
 public class UserDetailsImpl implements UserDetails {
-
+    private String importante = "FinalmenteAcabou";
     private Usuario usuario;
     private CredencialUsuarioSenha credencial;
 
