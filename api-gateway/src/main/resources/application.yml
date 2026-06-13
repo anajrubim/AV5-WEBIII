@@ -1,0 +1,47 @@
+server:
+  port: 8080
+
+jwt:
+  secret: "VKF.x8zKYvfnK%G(F[B/"
+  expiration: 600000
+
+spring:
+  main:
+    web-application-type: reactive
+  cloud:
+    gateway:
+      globalcors:
+        cors-configurations:
+          '[/**]':
+            allowedOrigins: "*"
+            allowedMethods: "*"
+            allowedHeaders: "*"
+      routes:
+        - id: ms-usuario-login
+          uri: http://localhost:8081
+          predicates:
+            - Path=/login
+        - id: ms-usuario
+          uri: http://localhost:8081
+          predicates:
+            - Path=/usuario/**,/cliente/**,/endereco/**,/telefone/**,/documento/**
+
+        - id: ms-empresa
+          uri: http://localhost:8082
+          predicates:
+            - Path=/empresa/**
+
+        - id: ms-catalogo
+          uri: http://localhost:8083
+          predicates:
+            - Path=/mercadoria/**,/servico/**
+
+        - id: ms-venda
+          uri: http://localhost:8084
+          predicates:
+            - Path=/venda/**
+
+        - id: ms-veiculo
+          uri: http://localhost:8085
+          predicates:
+            - Path=/veiculo/**

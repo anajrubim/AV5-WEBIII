@@ -1,0 +1,12 @@
+package com.autobots.msempresa.dto;
+
+import lombok.Data;
+
+@Data
+public class ServicoDto {
+    private Long id;
+    private String nome;
+    private double valor;
+    private String descricao;
+    private Long empresaId;
+}
